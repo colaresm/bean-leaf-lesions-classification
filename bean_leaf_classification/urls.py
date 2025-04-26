@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home-page/', views.home_page),
-    path('nova-rota/', views.minha_nova_view, name='nova-rota'),
+    path('home-page/', views.home_page, name='home-page'),
+    path('upload_image/', views.upload_image, name='result-page'),
 ]

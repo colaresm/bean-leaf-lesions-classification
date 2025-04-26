@@ -47,8 +47,8 @@
 </head>
 <body>
     <div class="upload-container">
-        <h1>Classificação de Lesões em Feijões</h1>
-        <form method="POST" enctype="multipart/form-data">
+        <h1>Classificação de Lesões em Folhas Feijões</h1>
+        <form method="POST" action="/upload_image/" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="file" name="imagem" accept="image/*" required>
             <br>
