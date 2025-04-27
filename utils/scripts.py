@@ -1,15 +1,21 @@
-import cv2
-import numpy as np
 from tensorflow.keras.preprocessing import image
 from tensorflow import keras
+import cv2
+import numpy as np
+
+classes = {
+    0:"mancha angular",
+    1:"Ferrugem (Uromyces phaseoli)",
+    2: "Nenhuma",
+}
 
 def get_class_label(predicted_class):
     if predicted_class == 0:
-        return "mancha angular"
+        return classes[0]
     if predicted_class == 1:
-        return "ferrugem"
+        return classes[1]
     else:
-        return "Saudável"
+        return classes[2]
     
 def classify_image(image_path):
     image = cv2.imread("media/"+image_path)
@@ -31,3 +37,19 @@ def classify_image(image_path):
     prediction = get_class_label(prediction)
 
     return prediction
+
+def get_prompt(label):
+    
+    if label==classes[0]:
+        return """
+        a definir 
+        """
+    if label == classes[1]:
+        return """
+        minha folha de feijão possui ferrugem  quais as causas?
+        """
+    else:
+        return """
+        a definir
+        """
+    

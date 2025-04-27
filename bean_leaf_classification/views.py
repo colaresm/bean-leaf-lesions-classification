@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
 from utils.scripts import classify_image
-
-
+from utils.llm import get_response_from_llm
+from utils.scripts import get_prompt
 def home_page(request):
     return render(request, 'home.html')
 
@@ -19,8 +19,10 @@ def upload_image(request):
 
         prediction = classify_image(image.name)
 
-        print(image.name)
-     
-        return render(request, 'result.html', {'image_url':uploaded_file_url,'prediction': prediction})
+        prompt = get_prompt(prediction)
+
+        response = "algo"#get_response_from_llm(prompt)
+        
+        return render(request, 'result.html', {'image_url':uploaded_file_url,'prediction': prediction,'response':response})
     
     return render(request, 'result.html')

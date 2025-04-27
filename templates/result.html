@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
-    <title>Resultado da Classificação de Lesões em Feijões</title>
+    <title>Resumo</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Roboto', sans-serif;
+            background-image: url("{% static 'bg.png' %}");
             display: flex;
             align-items: center;
             justify-content: center;
@@ -17,12 +17,12 @@
 
         .result-container {
             background-color: white;
-            padding: 40px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 700px;
-            height: 700px;
+            width: 800px;
+            height: 560px;
         }
 
         h1 {
@@ -31,25 +31,13 @@
         }
 
         .image-container {
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
 
         img {
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
             border-radius: 8px;
-        }
-
-        .classofocacap {
-            font-size: 18px;
-            color: #34495e;
-            margin-top: 20px;
-        }
-
-        .prediction-result {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2ecc71;
         }
 
         button {
@@ -71,32 +59,44 @@
         }
 
         .image-container img {
-            width: 100%;
+            width: 80%;
             height: 100%;
             object-fit: cover;
-        }
-
-        button:hover {
-            background-color: #27ae60;
         }
     </style>
 </head>
 
 <body>
     <div class="result-container">
-        <h1>Resultado da Classificação de Lesões em Feijões</h1>
-       
+        <h1>Resumo da Análise</h1>
+
 
         <div class="image-container">
             <img src="{{image_url}}" alt="Imagem enviada" height="300" ,width="300">
         </div>
 
 
-        <p class="classofocacap">A previsão é:</p>
-        <p class="prediction-result">{{ prediction }}</p>
+        <p><strong>Doença encontrada:</strong> 
+            {% if prediction == 'Nenhuma' %}
+                <span style="color: green;">{{ prediction }}</span>
+            {% else %}
+                <span style="color: red;">{{ prediction }}</span>
+            {% endif %}
+        </p>
+        
+        
+            {% if prediction != 'Nenhuma' %}
+            <div style="border: 1px solid black; padding: 10px; border-radius: 10px;">
+                <strong>Descrição:</strong>   {{response}}
+              </div>
+            
+            {% endif %}
+        </p>
 
+        
+          <br>
+          <br>
         <a href="/home-page">Voltar para a página inicial</a>
     </div>
 </body>
-
 </html>

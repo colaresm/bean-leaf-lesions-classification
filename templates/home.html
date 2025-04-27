@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Classificação de Lesões em Feijões</title>
+    <title>Detecção de Doenças Foliares em Feijões</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Roboto', sans-serif;
+            background-image: url("{% static 'bg.png' %}");
             display: flex;
             align-items: center;
             justify-content: center;
@@ -47,7 +49,7 @@
 </head>
 <body>
     <div class="upload-container">
-        <h1>Classificação de Lesões em Folhas Feijões</h1>
+        <h1>Detecção de Doenças Foliares em Feijões</h1>
         <form method="POST" action="/upload_image/" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="file" name="imagem" accept="image/*" required>
