@@ -1,1 +1,102 @@
-<h1>Result page</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado da Classificação de Lesões em Feijões</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .result-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 700px;
+            height: 700px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .classofocacap {
+            font-size: 18px;
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        .prediction-result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .image-container {
+            max-width: 100%;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result-container">
+        <h1>Resultado da Classificação de Lesões em Feijões</h1>
+       
+
+        <div class="image-container">
+            <img src="{{image_url}}" alt="Imagem enviada" height="300" ,width="300">
+        </div>
+
+
+        <p class="classofocacap">A previsão é:</p>
+        <p class="prediction-result">{{ prediction }}</p>
+
+        <a href="/home-page">Voltar para a página inicial</a>
+    </div>
+</body>
+
+</html>
