@@ -39,13 +39,15 @@ def classify_image(image_path):
     return prediction
 
 def get_prompt(label):
-    if label==classes[0]:
-        return """
-        minha folha de feijão possui manchas angulares, fale no contexto de plantas
-        """
-    if label == classes[1]:
-        return """
-        minha folha de feijão possui ferrugem
-        """
-  
     
+    if label == classes[0]:
+        return f"""
+        angular spots was detected on my bean leaf. Tell me about this problem.
+        """
+    
+    if label == classes[1]:
+        return f"""
+        rust was detected on my bean leaf. Tell me about this problem.
+        """
+
+#rust was detected on my bean leaf. Tell me about this problem.

@@ -1,2 +1,3 @@
 pip install llama-cpp-python
 pip install huggingface-hub==0.17.1 -q
+pip install googletrans==4.0.0-rc1

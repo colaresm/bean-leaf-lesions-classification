@@ -1,10 +1,8 @@
 import os
 from huggingface_hub import hf_hub_download
 from llama_cpp import Llama
-from utils.scripts import get_prompt
-from llama_cpp import Llama
-import os
 from huggingface_hub import hf_hub_download
+from googletrans import Translator
 
 selected_llm = 'Mistral-7B-OpenOrca' 
 model_dic = {"Mistral-7B":{"HF_REPO_NAME":"TheBloke/Mistral-7B-Instruct-v0.1-GGUF","HF_MODEL_NAME":"mistral-7b-instruct-v0.1.Q4_K_M.gguf"},
@@ -38,7 +36,8 @@ def get_response_from_llm(prompt):
 
         if result.strip():
             generated_text += result
+    translator = Translator()
 
-    return generated_text
+    return translator.translate(generated_text, src='en', dest='pt').text
 
 
