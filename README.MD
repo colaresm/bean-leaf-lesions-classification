@@ -15,12 +15,26 @@ A MobileNet was trained using the [Bean Leaf Lesions Classification dataset](htt
 - To run the application, it is recommended to use a Python environment as some libraries will need to be installed.Initially, run the following command:
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 - To start the application, simply execute the following command:
 ```
-python manage.py run server
+python manage.py runserver
 ```
 The following theme will be displayed, then simply upload an image you wish to evaluate.  Access the route ``http://localhost:8000/home-page/`` and you will see the following page:
 <br>
-<img src="static/ezgif.com-animated-gif-maker-3.gif" width="1000%" />
+<img src="static/gif.gif" width="1000%" />
+
+# Contributing
+
+1. Fork the repository.
+2. Create a branch for your changes (`git checkout -b feature/new-feature`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature/new-feature`).
+5. Open a pull request.
+
+# Contact
+
+- **Email**: colaresmarcelo2022@gmail.com
+- **LinkedIn**: [engmarcelocolares](https://www.linkedin.com/in/engmarcelocolares/)
+
