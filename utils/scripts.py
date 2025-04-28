@@ -4,8 +4,8 @@ import cv2
 import numpy as np
 
 classes = {
-    0:"mancha angular",
-    1:"Ferrugem (Uromyces phaseoli)",
+    0:"Manchas angulares",
+    1:"Ferrugem",
     2: "Nenhuma",
 }
 
@@ -28,7 +28,7 @@ def classify_image(image_path):
 
     image = np.array([image])
 
-    model = keras.models.load_model('/Users/marcelocolares/Documents/Bean_Leaf_Lesions_Classification /bean_leaf_classification/models/bean_leaf_lesion.keras') 
+    model = keras.models.load_model('models/bean_leaf_lesion.keras') 
 
     prediction = model.predict(image)
 
@@ -39,17 +39,13 @@ def classify_image(image_path):
     return prediction
 
 def get_prompt(label):
-    
     if label==classes[0]:
         return """
-        a definir 
+        minha folha de feijão possui manchas angulares, fale no contexto de plantas
         """
     if label == classes[1]:
         return """
-        minha folha de feijão possui ferrugem  quais as causas?
+        minha folha de feijão possui ferrugem
         """
-    else:
-        return """
-        a definir
-        """
+  
     

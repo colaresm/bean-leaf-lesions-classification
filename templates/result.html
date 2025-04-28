@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Resumo</title>
@@ -22,7 +23,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 800px;
-            height: 560px;
+            height: 600px;
         }
 
         h1 {
@@ -59,7 +60,7 @@
         }
 
         .image-container img {
-            width: 80%;
+            width: 78%;
             height: 100%;
             object-fit: cover;
         }
@@ -76,27 +77,26 @@
         </div>
 
 
-        <p><strong>Doença encontrada:</strong> 
+        <p><strong>Doença encontrada:</strong>
             {% if prediction == 'Nenhuma' %}
-                <span style="color: green;">{{ prediction }}</span>
+            <span style="color: green; font-size: 20px;">{{ prediction }}</span>
             {% else %}
-                <span style="color: red;">{{ prediction }}</span>
-            {% endif %}
-        </p>
-        
-        
-            {% if prediction != 'Nenhuma' %}
-            <div style="border: 1px solid black; padding: 10px; border-radius: 10px;">
-                <strong>Descrição:</strong>   {{response}}
-              </div>
-            
+            <span style="color: red; font-size: 20px;">{{ prediction }}</span>
             {% endif %}
         </p>
 
-        
-          <br>
-          <br>
+        {% if prediction != 'Nenhuma' %}
+        <div style="border: 1px solid black; padding: 10px; border-radius: 10px;">
+            <p><span style="text-align: justify; display: block;"> <strong>Descrição:</strong> {{ response }}</span></p>
+        </div>
+        {% endif %}
+        </p>
+        {% if prediction == 'Nenhuma' %}
+        <br>
+        <br>
+        {% endif %}
         <a href="/home-page">Voltar para a página inicial</a>
     </div>
 </body>
+
 </html>

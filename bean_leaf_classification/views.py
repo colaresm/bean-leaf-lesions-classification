@@ -21,8 +21,11 @@ def upload_image(request):
 
         prompt = get_prompt(prediction)
 
-        response = "algo"#get_response_from_llm(prompt)
-        
+        if prediction != "Nenhuma":
+            response = get_response_from_llm(prompt)
+        else:
+            response = ""
+
         return render(request, 'result.html', {'image_url':uploaded_file_url,'prediction': prediction,'response':response})
     
     return render(request, 'result.html')

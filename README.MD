@@ -21,4 +21,6 @@ pip install requirements.txt
 ```
 python manage.py run server
 ```
-The following theme will be displayed, then simply upload an image you wish to evaluate. The system includes a validation to ensure that only images of bean leaves are evaluated, preventing incorrect results from being generated.
+The following theme will be displayed, then simply upload an image you wish to evaluate.  Access the route ``http://localhost:8000/home-page/`` and you will see the following page:
+<br>
+<img src="static/ezgif.com-animated-gif-maker-3.gif" width="1000%" />

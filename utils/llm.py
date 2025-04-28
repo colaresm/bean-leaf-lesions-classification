@@ -21,7 +21,7 @@ model_path = hf_hub_download(
     repo_id=HF_REPO_NAME, filename=HF_MODEL_NAME, local_dir=LOCAL_DIR_NAME
 )
 
-def get_response_from_llm(dat):
+def get_response_from_llm(prompt):
     llm = Llama(
         model_path=model_path,
         n_threads=2,
@@ -29,8 +29,8 @@ def get_response_from_llm(dat):
         n_gpu_layers=30, 
         n_ctx=4096, 
     )
-    prompt = get_prompt(0)
-    response = llm(prompt, stream=True, stop=["\n\n"], temperature=0, max_tokens=200)
+    
+    response = llm(prompt, stream=True, stop=["\n\n"], temperature=0.3, max_tokens=200)
     generated_text = ""
 
     for output in response:
@@ -42,4 +42,3 @@ def get_response_from_llm(dat):
     return generated_text
 
 
-#A ferrugem é uma doença do feijão causada por um fungo, Puccinia psittacina. Esta doença pode ser causada por condições ambientais desfavoráveis, como temperaturas muito baixas ou altas, ou por falta de nutrientes no solo. Além disso, a falta de aplicação de fungicidas pode também ser um fator que contribui para a ocorrência da ferrugem.
